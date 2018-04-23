@@ -1,0 +1,351 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TgBot documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-tgbot-s-documentation">
+<h1>Welcome to TgBot’s documentation!<a class="headerlink" href="#welcome-to-tgbot-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-bot"></span><div class="section" id="bot-module">
+<h2>bot module<a class="headerlink" href="#bot-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<span id="document-dialog_flow"></span><div class="section" id="module-dialog_flow">
+<span id="dialog-flow-module"></span><h2>dialog_flow module<a class="headerlink" href="#module-dialog_flow" title="Permalink to this headline">¶</a></h2>
+<p>Модуль для взаимодействия с DialogFlow</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">author:</th><td class="field-body">Melnikov Dmitry</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="dialog_flow.DialogFlow">
+<em class="property">class </em><code class="descclassname">dialog_flow.</code><code class="descname">DialogFlow</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#dialog_flow.DialogFlow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс, предоставляющий интерфейс для взаимодействия с Dialog Flow</p>
+<dl class="method">
+<dt id="dialog_flow.DialogFlow.sendMessage">
+<code class="descname">sendMessage</code><span class="sig-paren">(</span><em>text</em>, <em>sessionId</em><span class="sig-paren">)</span><a class="headerlink" href="#dialog_flow.DialogFlow.sendMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Метод отправки сообщения в Dialog Flow</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> – текст отправляемого сообщения</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">словарь, содержащий поля “speech”, “intentName” и “parametrs”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raise:</th><td class="field-body">DialogFlowException</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dialog_flow.DialogFlowException">
+<em class="property">exception </em><code class="descclassname">dialog_flow.</code><code class="descname">DialogFlowException</code><a class="headerlink" href="#dialog_flow.DialogFlowException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Класс исключений, возникающих при обращении к Dialog Flow</p>
+</dd></dl>
+
+</div>
+<span id="document-handlers"></span><div class="section" id="handlers-package">
+<h2>handlers package<a class="headerlink" href="#handlers-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="submodules">
+<h3>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="module-handlers.base_handler">
+<span id="handlers-base-handler-module"></span><h3>handlers.base_handler module<a class="headerlink" href="#module-handlers.base_handler" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="handlers.base_handler.BaseHandler">
+<em class="property">class </em><code class="descclassname">handlers.base_handler.</code><code class="descname">BaseHandler</code><span class="sig-paren">(</span><em>bot</em>, <em>message</em>, <em>server</em>, <em>df=None</em><span class="sig-paren">)</span><a class="headerlink" href="#handlers.base_handler.BaseHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Базовый класс обработчика сообщений</p>
+<dl class="method">
+<dt id="handlers.base_handler.BaseHandler.handle">
+<code class="descname">handle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#handlers.base_handler.BaseHandler.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Метод для обработки сообщения.
+Переопределяется в дочерних классах</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="handlers.base_handler.BaseHandler.sendMessage">
+<code class="descname">sendMessage</code><span class="sig-paren">(</span><em>id</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#handlers.base_handler.BaseHandler.sendMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Метод отправки сообщения пользователю</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> – id пользователя</li>
+<li><strong>text</strong> – текст сообщения</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-handlers.text_handler">
+<span id="handlers-text-handler-module"></span><h3>handlers.text_handler module<a class="headerlink" href="#module-handlers.text_handler" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="handlers.text_handler.TextHandler">
+<em class="property">class </em><code class="descclassname">handlers.text_handler.</code><code class="descname">TextHandler</code><span class="sig-paren">(</span><em>bot</em>, <em>message</em>, <em>server</em>, <em>df=None</em><span class="sig-paren">)</span><a class="headerlink" href="#handlers.text_handler.TextHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#handlers.base_handler.BaseHandler" title="handlers.base_handler.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">handlers.base_handler.BaseHandler</span></code></a></p>
+<p>Класс обработчика текстовых сообщений</p>
+<dl class="method">
+<dt id="handlers.text_handler.TextHandler.handle">
+<code class="descname">handle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#handlers.text_handler.TextHandler.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Метод обработки сообщения</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="handlers-voice-handler-module">
+<h3>handlers.voice_handler module<a class="headerlink" href="#handlers-voice-handler-module" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="module-handlers">
+<span id="module-contents"></span><h3>Module contents<a class="headerlink" href="#module-handlers" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<span id="document-main_server"></span><div class="section" id="module-main_server">
+<span id="main-server-module"></span><h2>main_server module<a class="headerlink" href="#module-main_server" title="Permalink to this headline">¶</a></h2>
+<p>Модуль для взаимодействия с главным сервером</p>
+<dl class="class">
+<dt id="main_server.MainServer">
+<em class="property">class </em><code class="descclassname">main_server.</code><code class="descname">MainServer</code><span class="sig-paren">(</span><em>host</em><span class="sig-paren">)</span><a class="headerlink" href="#main_server.MainServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Класс для взаимодействия с главным сервером приложения</p>
+<dl class="method">
+<dt id="main_server.MainServer.createRoom">
+<code class="descname">createRoom</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#main_server.MainServer.createRoom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Запрос на создание комнаты</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> – сообщение пользователя (telebot.types.Message)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">результат запроса(True/False), 
+признак дополнения сообщения, сообщение</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main_server.MainServer.getRoomInfo">
+<code class="descname">getRoomInfo</code><span class="sig-paren">(</span><em>message</em>, <em>roomId</em><span class="sig-paren">)</span><a class="headerlink" href="#main_server.MainServer.getRoomInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Запрос на получение списка комнат</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>message</strong> – сообщение пользователя (telebot.types.Message)</li>
+<li><strong>roomId</strong> – id группы</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">результат запроса(True/False), 
+признак дополнения сообщения, сооsщение</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main_server.MainServer.getRoomsList">
+<code class="descname">getRoomsList</code><span class="sig-paren">(</span><em>message</em>, <em>role</em><span class="sig-paren">)</span><a class="headerlink" href="#main_server.MainServer.getRoomsList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Запрос на получение списка комнат</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>message</strong> – сообщение пользователя (telebot.types.Message)</li>
+<li><strong>role</strong> – роль пользователя в группе (админ, читатель, модератор)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">результат запроса(True/False), 
+признак дополнения сообщения, сообщение</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main_server.MainServer.sendMessage">
+<code class="descname">sendMessage</code><span class="sig-paren">(</span><em>message</em>, <em>roomId</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#main_server.MainServer.sendMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Запрос на отправку сообщения в группу</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>message</strong> – сообщение пользователя (telebot.types.Message)</li>
+<li><strong>roomId</strong> – id группы</li>
+<li><strong>text</strong> – текст для рассылки членам группы</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">результат запроса(True/False), 
+признак дополнения сообщения, сообщение</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main_server.MainServer.sendRequest">
+<code class="descname">sendRequest</code><span class="sig-paren">(</span><em>intentName</em>, <em>message</em>, <em>parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#main_server.MainServer.sendRequest" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Метод для отправки запроса на сервер.</dt>
+<dd>На основании значения intentName принимается решение,
+какой запрос отправлять.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>intentName</strong> – имя интента, полученноe из Dialog Flow</li>
+<li><strong>message</strong> – сообщение пользователя (telebot.types.Message)</li>
+<li><strong>parameters</strong> – данные для запроса</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">результат запроса(True/False), 
+признак дополнения сообщения, сообщение</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="main_server.MainServer.subscribe">
+<code class="descname">subscribe</code><span class="sig-paren">(</span><em>message</em>, <em>roomId</em><span class="sig-paren">)</span><a class="headerlink" href="#main_server.MainServer.subscribe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Запрос на подписку в группу</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>message</strong> – сообщение пользователя (telebot.types.Message)</li>
+<li><strong>roomId</strong> – id группы</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">результат запроса(True/False), 
+признак дополнения сообщения, сообщение</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span id="document-voice_message"></span><div class="section" id="voice-message-module">
+<h2>voice_message module<a class="headerlink" href="#voice-message-module" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-bot">bot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-dialog_flow">dialog_flow module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-handlers">handlers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-handlers.base_handler">handlers.base_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-handlers.text_handler">handlers.text_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#handlers-voice-handler-module">handlers.voice_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-handlers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-main_server">main_server module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-voice_message">voice_message module</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
